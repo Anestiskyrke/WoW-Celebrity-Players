@@ -1,0 +1,39 @@
+<style>
+    table { 
+        border: 1px solid grey;
+        padding:0em 2em;
+        border-collapse: collapse;
+    }
+    tr {
+        border-bottom: 3px solid rgba(128, 128, 128, 0.415);
+    }
+    td {
+        padding: 2em;
+    }
+</style>
+
+<div class='grid-container justify-content-center' style='margin-inline:5%;'>
+    <div class='box-wrapper' style='text-align:center; border:none;'>
+        <p-table [columns]="cols" [value]="users" responsiveLayout="scroll">
+            <ng-template pTemplate="header" let-columns >
+                <tr style="background-color:rgba(233, 231, 231, 0.459);">
+                    <th *ngFor="let col of columns">
+                        {{col.header}}
+                    </th>
+                    <p style="background-color:rgba(233, 231, 231, 0.459);"></p>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr>
+                    <td *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+                    </td>
+                    <button class="btn btn-dark" style=' margin-top: 8%;' (click)="delete(rowData)">Delete User</button>
+                </tr>
+            </ng-template>
+        </p-table>
+        <div style='text-align:center;'>
+            <button class="btn btn-danger" style=' margin-top: 5%;' (click)="deleteAll()">Delete All Users</button>
+        </div>
+    </div>
+</div>

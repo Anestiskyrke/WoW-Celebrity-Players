@@ -1,0 +1,54 @@
+<div class='grid-container d-flex justify-content-center' style='margin:3%;'>
+  <div class='box-wrapper' style='text-align:center; border:none;'>
+    <h2 class='logo'>
+      <img src="https://i.pinimg.com/originals/1b/8b/b1/1b8bb13aed30fd11c25c11768c252682.jpg" class='rounded-circle' width="200" height="200">
+      <p class='text-align:justify'>Αdd User</p></h2>
+    <div class="submit-form" >
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            required
+            [(ngModel)]="user.name"
+            name="name"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="surname">Surname</label>
+          <input
+            class="form-control"
+            id="surname"
+            required
+            [(ngModel)]="user.surname"
+            name="surname"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="Date">Date</label>
+          <input
+            class="form-control"
+            id="Date"
+            required
+            [(ngModel)]="user.Date"
+            name="Date"
+          />
+        </div>
+        
+        <div style='margin-top: 5%;'>
+          <button (click)="saveUser()" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+      
+      <div *ngIf="submitted">
+        <h4>User was submitted successfully!</h4>
+        <button class="btn btn-info" (click)="basicUserForm()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
